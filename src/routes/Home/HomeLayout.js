@@ -8,8 +8,8 @@ import MapContainer from './components/Map'
 class HomeLayout extends React.Component {
 	componentDidMount(){
 		console.log("Home: componentDidMount called");
-		this.props.setName();
-		this.props.getCurrentLocation();
+		this.props.actions.setName();
+		this.props.actions.getCurrentLocation();
 		// this.props.getAddressPredictions();
 	}
 
@@ -21,16 +21,18 @@ class HomeLayout extends React.Component {
 			latitudeDelta: 0.0922,
 			longitudeDelta: 0.0421
 		}
+		// If received current location
 		if(this.props.location.latitude){
 			return (
 				<Container> 
 				   	<MapContainer 
 					   	region={this.props.location}
-					   	getLocationInput={this.props.getLocationInput}/>
+					   	getLocationInput={this.props.actions.getLocationInput}/>
 				</Container>
 	    	);
 		}
-		else{
+		// Else, show loading spinner
+		else {
 			return (
 				<View style={styles.loadingContainer}>
 			        <Spinner color='black' />

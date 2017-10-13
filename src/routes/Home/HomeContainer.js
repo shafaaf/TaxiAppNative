@@ -1,22 +1,16 @@
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+
 import HomeLayout from './HomeLayout';
-import { 
-	getAddressPredictions,
-	setName, 
-	getCurrentLocation,
-	getLocationInput
-} from './actions';
+import * as actions from './actions';
 
 const mapStateToProps = (state) => ({
 	name: state.NameReducer,
 	location: state.LocationReducer,
 	locationInputs: state.LocationInputsReducer 
 });
-const mapActionCreators = {
-	getAddressPredictions,
-	setName,
-	getCurrentLocation,
-	getLocationInput
-};
 
-export default connect(mapStateToProps, mapActionCreators)(HomeLayout);
+function mapDispatchToProps(dispatch) {
+  return {actions: bindActionCreators(Object.assign(actions), dispatch)}
+}
+export default connect(mapStateToProps, mapDispatchToProps)(HomeLayout);

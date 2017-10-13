@@ -19,7 +19,7 @@ export const MapContainer = (props) => {
 	  				pinColor="green"/>
 	  		</MapView>
 	  		<SearchBox getLocationInput={props.getLocationInput}/>
-	  		<SearchResults/> 
+	  		<SearchResults/>
 	    </View>
     );
 }
