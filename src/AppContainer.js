@@ -5,9 +5,9 @@ import { Provider } from "react-redux";
 import scenes from './routes/scenes';
 
 export default class AppContainer extends Component {
-	static propTypes = {
-		store: PropTypes.object.isRequired
-	}
+	// static propTypes = {
+	// 	store: PropTypes.object.isRequired
+	// }
 	render() {
 		return (
 	    	<Provider store={this.props.store}>

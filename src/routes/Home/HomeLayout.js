@@ -10,7 +10,7 @@ class HomeLayout extends React.Component {
 		console.log("Home: componentDidMount called");
 		this.props.setName();
 		this.props.getCurrentLocation();
-		this.props.getAddressPredictions();
+		// this.props.getAddressPredictions();
 	}
 
 	render() {

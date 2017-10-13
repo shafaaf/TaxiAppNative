@@ -11,6 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
+
 import Main from './src/main';
 
 const instructions = Platform.select({
@@ -23,6 +24,7 @@ const instructions = Platform.select({
 
 export default class App extends Component<{}> {
   render() {
+    /*
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -34,6 +36,11 @@ export default class App extends Component<{}> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+      </View>
+    );*/
+    return (
+      <View style={styles.container}>
+        <Main {...this.props}/>
       </View>
     );
   }
