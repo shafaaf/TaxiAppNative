@@ -7,7 +7,8 @@ import * as actions from './actions';
 const mapStateToProps = (state) => ({
 	name: state.NameReducer,
 	location: state.LocationReducer,
-	locationInputs: state.LocationInputsReducer 
+	locationInputs: state.LocationInputsReducer,
+	locationInputPredictors: state.LocationInputPredictorsReducer
 });
 
 function mapDispatchToProps(dispatch) {

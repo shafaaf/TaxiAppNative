@@ -1,10 +1,13 @@
 import RNGooglePlaces from 'react-native-google-places';
 
 import constants from './utils/actionConstants';
+
+// Reducers
 const { 
 	SET_NAME, 
 	GET_CURRENT_LOCATION,
-	GET_LOCATION_INPUT 
+	GET_LOCATION_INPUT,
+	GET_ADDRESS_PREDICTIONS
 } = constants;
 
 // Functions to dispatch actions
@@ -47,7 +50,15 @@ export function getAddressPredictions(payload){
 	console.log("action dispatched: getAddressPredictions(). payload is: ", payload);
 		let inputForPredictions = payload.value;
 		console.log("inputForPredictions is: ", inputForPredictions);
-		RNGooglePlaces.getAutocompletePredictions(inputForPredictions)
-		    .then((results) => console.log("results is: ", results))
-		    .catch((error) => console.log(error.message));		
+		return(dispatch)=>{
+			RNGooglePlaces.getAutocompletePredictions(inputForPredictions)
+		    .then((results) => {
+		    	console.log("results is: ", results);
+		    	dispatch({
+					type: GET_ADDRESS_PREDICTIONS,
+					payload: results
+				});
+		    })
+		    .catch((error) => console.log(error.message));
+		}
 }
