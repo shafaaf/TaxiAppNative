@@ -6,7 +6,7 @@ const initialState = {
   	"dropOff": "dropOffTest",
   	"selectedInputField": "selectedInputFieldTest"
   },
-  locationInputPredictor: []
+  locationInputPredictors: []
 };
 
 export default initialState;

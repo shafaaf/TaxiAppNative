@@ -7,7 +7,7 @@ import MapContainer from './components/Map'
 
 class HomeLayout extends React.Component {
 	componentDidMount(){
-		console.log("Home: componentDidMount called");
+		// console.log("Home: componentDidMount called");
 		this.props.actions.setName();
 		this.props.actions.getCurrentLocation();
 		// this.props.actions.getAddressPredictions();

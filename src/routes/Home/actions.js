@@ -50,7 +50,7 @@ export function getAddressPredictions(payload){
 	console.log("action dispatched: getAddressPredictions(). payload is: ", payload);
 		let inputForPredictions = payload.value;
 		console.log("inputForPredictions is: ", inputForPredictions);
-		return(dispatch)=>{
+		return(dispatch) => {
 			RNGooglePlaces.getAutocompletePredictions(inputForPredictions)
 		    .then((results) => {
 		    	console.log("results is: ", results);
