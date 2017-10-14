@@ -5,7 +5,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import styles from './styles';
 
 export const SearchResults = () => {
-	return (
+	return (  		
 		<View style={styles.searchResultsWrapper}>
 			<List>
 				<ListItem button avatar>

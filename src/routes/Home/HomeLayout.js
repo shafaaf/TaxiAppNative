@@ -10,7 +10,7 @@ class HomeLayout extends React.Component {
 		console.log("Home: componentDidMount called");
 		this.props.actions.setName();
 		this.props.actions.getCurrentLocation();
-		// this.props.getAddressPredictions();
+		// this.props.actions.getAddressPredictions();
 	}
 
 	render() {
@@ -27,7 +27,8 @@ class HomeLayout extends React.Component {
 				<Container> 
 				   	<MapContainer 
 					   	region={this.props.location}
-					   	getLocationInput={this.props.actions.getLocationInput}/>
+					   	getLocationInput={this.props.actions.getLocationInput}
+					   	getAddressPredictions={this.props.actions.getAddressPredictions}/>
 				</Container>
 	    	);
 		}

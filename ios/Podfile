@@ -18,6 +18,8 @@ target 'taxiAppNative' do
     'RCTWebSocket'
   ]
 
-  pod 'GoogleMaps'  
+  pod 'GoogleMaps'
+  pod 'GooglePlaces'
+  pod 'GooglePlacePicker'
  
 end

@@ -18,7 +18,9 @@ export const MapContainer = (props) => {
 					coordinate={props.region}
 	  				pinColor="green"/>
 	  		</MapView>
-	  		<SearchBox getLocationInput={props.getLocationInput}/>
+	  		<SearchBox 
+	  			getLocationInput={props.getLocationInput}
+	  			getAddressPredictions={props.getAddressPredictions}/>
 	  		<SearchResults/>
 	    </View>
     );

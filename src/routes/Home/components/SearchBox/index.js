@@ -8,7 +8,11 @@ export const SearchBox = (props) => {
 	function handleInput(inputType, value){
 		// console.log("handleInput: inputType is: ", inputType);
 		// console.log("handleInput: value is: ", value);
-		props.getLocationInput({
+		props.getLocationInput({ //update pickup, dropoff locations
+			inputType,
+			value
+		});
+		props.getAddressPredictions({ //get predictions for pickup, dropoff locations
 			inputType,
 			value
 		});

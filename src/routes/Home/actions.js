@@ -1,4 +1,5 @@
-// import RNGooglePlaces from 'react-native-google-places';
+import RNGooglePlaces from 'react-native-google-places';
+
 import constants from './utils/actionConstants';
 const { 
 	SET_NAME, 
@@ -7,25 +8,6 @@ const {
 } = constants;
 
 // Functions to dispatch actions
-
-/*
-export function getAddressPredictions(){
-	console.log("action dispatched: getAddressPredictions()");
-	return (dispatch, store) => {
-		console.log("store is: ", store());
-		let userInput = store().LocationInputsReducer.selectedInputField;		
-		RNGooglePlaces.getAutocompletePredictions(userInput,
-			{
-				country:"MY"
-			}
-		)
-		.then((results)=>
-			console.log("results is: ", results)
-		)
-		.catch((error)=> console.log(error.message));
-	}
-} 
-*/
 
 export function setName(){
 	// console.log("action dispatched: setName()");
@@ -53,10 +35,19 @@ export function getCurrentLocation(){
 
 // Get input from user for pickup or dropoff locations
 export function getLocationInput(payload){
-	// console.log("action dispatched: getLocationInput()- payload is: ", payload);
+	console.log("action dispatched: getLocationInput()- payload is: ", payload);
 	return  {
 		type: GET_LOCATION_INPUT,
 		payload
 	}
 }
 
+// Get predictions from user pickup and dropoff locations
+export function getAddressPredictions(payload){
+	console.log("action dispatched: getAddressPredictions(). payload is: ", payload);
+		let inputForPredictions = payload.value;
+		console.log("inputForPredictions is: ", inputForPredictions);
+		RNGooglePlaces.getAutocompletePredictions(inputForPredictions)
+		    .then((results) => console.log("results is: ", results))
+		    .catch((error) => console.log(error.message));		
+}

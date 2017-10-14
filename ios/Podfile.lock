@@ -4,6 +4,11 @@ PODS:
   - GoogleMaps/Base (2.4.0)
   - GoogleMaps/Maps (2.4.0):
     - GoogleMaps/Base
+  - GooglePlacePicker (2.4.0):
+    - GoogleMaps (= 2.4.0)
+    - GooglePlaces (= 2.4.0)
+  - GooglePlaces (2.4.0):
+    - GoogleMaps/Base (= 2.4.0)
   - React/Core (0.49.3):
     - yoga (= 0.49.3.React)
   - React/fishhook (0.49.3)
@@ -36,6 +41,8 @@ PODS:
 
 DEPENDENCIES:
   - GoogleMaps
+  - GooglePlacePicker
+  - GooglePlaces
   - React/Core (from `../node_modules/react-native`)
   - React/RCTActionSheet (from `../node_modules/react-native`)
   - React/RCTAnimation (from `../node_modules/react-native`)
@@ -57,9 +64,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   GoogleMaps: 8436ab5d1c25e36915b2f7416d0c8e3fa2e76c61
+  GooglePlacePicker: 755f10343d71280c7b016823e73fbae9625dfa8a
+  GooglePlaces: aafe5990fa7951e98e078761bbdaaf236d7e0c65
   React: 5751f5630c58f7ef31a00cf03044878295bceff0
   yoga: 6e56575501ecea04196f9c9f08b90cf97cd5da24
 
-PODFILE CHECKSUM: 6cc3cbd9c08b1bece76a7a3b327b5105d74689cd
+PODFILE CHECKSUM: 05b00782c6bfafc0db5698e2866dac29065d9e92
 
 COCOAPODS: 1.3.1
