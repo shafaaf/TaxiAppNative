@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Text } from 'react-native';
 import { View, InputGroup, Input } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -21,7 +22,8 @@ export const SearchBox = (props) => {
 				<Text style={styles.label}>Pick Up</Text>
 		    	<InputGroup>
 		    		<Icon name="search" size={15} color="#FF5E3A"/>
-		    		<Input 
+		    		<Input
+		    			onFocus={()=>console.log("pickUp input box clicked on.")}
 		    			style={styles.inputSearch} 
 		    			placeholder="Choose pickup location."
 		    			onChangeText={handleInput.bind(this, "pickUp")}/>
@@ -32,12 +34,19 @@ export const SearchBox = (props) => {
 		    	<InputGroup>
 		    		<Icon name="search" size={15} color="#FF5E3A"/>
 		    		<Input 
+		    			onFocus={()=>console.log("dropOff input box clicked on.")}
 		    			style={styles.inputSearch} 
-		    			placeholder="Choose drop-off location."
+		    			placeholder="Choose dropOff location."
 		    			onChangeText={handleInput.bind(this, "dropOff")}/>
 		    	</InputGroup>
 		    </View>
 	    </View>
     );
 }
+
+SearchBox.propTypes = {
+	getLocationInput: PropTypes.func.isRequired,
+	getAddressPredictions: PropTypes.func.isRequired
+};
+
 export default SearchBox;

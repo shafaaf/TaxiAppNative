@@ -8,7 +8,7 @@ const mapStateToProps = (state) => ({
 	name: state.NameReducer,
 	location: state.LocationReducer,
 	locationInputs: state.LocationInputsReducer,
-	locationInputPredictors: state.LocationInputPredictorsReducer
+	toggleLocationPredictionModal: state.ToggleLocationPredictionModalReducer
 });
 
 function mapDispatchToProps(dispatch) {

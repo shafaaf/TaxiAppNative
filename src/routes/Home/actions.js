@@ -49,14 +49,17 @@ export function getLocationInput(payload){
 export function getAddressPredictions(payload){
 	console.log("action dispatched: getAddressPredictions(). payload is: ", payload);
 		let inputForPredictions = payload.value;
-		console.log("inputForPredictions is: ", inputForPredictions);
+		// console.log("inputForPredictions is: ", inputForPredictions);
 		return(dispatch) => {
 			RNGooglePlaces.getAutocompletePredictions(inputForPredictions)
-		    .then((results) => {
-		    	console.log("results is: ", results);
+		    .then((predictions) => {
+		    	// console.log("predictions is: ", predictions);
 		    	dispatch({
 					type: GET_ADDRESS_PREDICTIONS,
-					payload: results
+					payload: {
+						inputType: payload.inputType,
+						predictions
+					}
 				});
 		    })
 		    .catch((error) => console.log(error.message));

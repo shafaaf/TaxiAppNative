@@ -6,7 +6,10 @@ const initialState = {
   	"dropOff": "dropOffTest",
   	"selectedInputField": "selectedInputFieldTest"
   },
-  locationInputPredictors: []
+  toggleLocationPredictionModal: {
+  	"inputFieldSelected": "testInputFieldSelected",
+  	"predictions": []
+  }
 };
 
 export default initialState;

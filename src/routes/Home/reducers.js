@@ -67,16 +67,19 @@ export function LocationInputsReducer(state=initialState.locationInputs, action)
 	}
 }
 
-export function LocationInputPredictorsReducer(state=initialState.locationInputPredictors, action) {
-	console.log("\n===Reducer LocationInputPredictorsReducer running.");
-	console.log("LocationInputPredictorsReducer: state is: ", state);
-	console.log("LocationInputPredictorsReducer: action is: ", action);
+export function ToggleLocationPredictionModalReducer(state=initialState.toggleLocationPredictionModal, action) {
+	console.log("\n===Reducer ToggleLocationPredictionModalReducer running.");
+	console.log("ToggleLocationPredictionModalReducer: state is: ", state);
+	console.log("ToggleLocationPredictionModalReducer: action is: ", action);
 	switch(action.type) {
 		case GET_ADDRESS_PREDICTIONS:
-			console.log("LocationInputPredictorsReducer: GET_ADDRESS_PREDICTIONS.");
-			return action.payload;
+			console.log("ToggleLocationPredictionModalReducer: GET_ADDRESS_PREDICTIONS.");
+			var newData = {};
+			newData.inputFieldSelected = action.payload.inputType;
+			newData.predictions = action.payload.predictions;
+			return Object.assign({}, newData);
 		default:
-			console.log("LocationInputPredictorsReducer: default."); 
+			console.log("ToggleLocationPredictionModalReducer: default."); 
 			return state;
 	}
 }
