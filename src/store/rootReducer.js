@@ -3,7 +3,7 @@ import {
 	NameReducer, 
 	LocationReducer,
 	LocationInputsReducer,
-	ToggleLocationPredictionModalReducer
+	LocationPredictionsReducer
 } from '../routes/Home/reducers';
 
 export const makeRootReducer = () => {
@@ -11,7 +11,7 @@ export const makeRootReducer = () => {
 		NameReducer,
 		LocationReducer,
 		LocationInputsReducer,
-		ToggleLocationPredictionModalReducer
+		LocationPredictionsReducer
 	});
 }
 

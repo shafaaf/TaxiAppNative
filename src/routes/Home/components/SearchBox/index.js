@@ -23,7 +23,10 @@ export const SearchBox = (props) => {
 		    	<InputGroup>
 		    		<Icon name="search" size={15} color="#FF5E3A"/>
 		    		<Input
-		    			onFocus={()=>console.log("pickUp input box clicked on.")}
+		    			onFocus={()=>{
+		    				props.toggleLocationPredictionsModal();
+		    			}}
+		    			value={props.locationInputs.pickUp}
 		    			style={styles.inputSearch} 
 		    			placeholder="Choose pickup location."
 		    			onChangeText={handleInput.bind(this, "pickUp")}/>
@@ -34,7 +37,10 @@ export const SearchBox = (props) => {
 		    	<InputGroup>
 		    		<Icon name="search" size={15} color="#FF5E3A"/>
 		    		<Input 
-		    			onFocus={()=>console.log("dropOff input box clicked on.")}
+		    			onFocus={()=>{
+		    				props.toggleLocationPredictionsModal();
+		    			}}
+		    			value={props.locationInputs.dropOff}
 		    			style={styles.inputSearch} 
 		    			placeholder="Choose dropOff location."
 		    			onChangeText={handleInput.bind(this, "dropOff")}/>
@@ -45,8 +51,10 @@ export const SearchBox = (props) => {
 }
 
 SearchBox.propTypes = {
+	locationInputs: PropTypes.object.isRequired,
 	getLocationInput: PropTypes.func.isRequired,
-	getAddressPredictions: PropTypes.func.isRequired
+	getAddressPredictions: PropTypes.func.isRequired,
+	toggleLocationPredictionsModal: PropTypes.func.isRequired
 };
 
 export default SearchBox;

@@ -7,7 +7,8 @@ const {
 	SET_NAME, 
 	GET_CURRENT_LOCATION,
 	GET_LOCATION_INPUT,
-	GET_ADDRESS_PREDICTIONS
+	GET_ADDRESS_PREDICTIONS,
+	SET_LOCATION_INPUT
 } = constants;
 
 // Functions to dispatch actions
@@ -17,6 +18,16 @@ export function setName(){
 	return  {
 		type: SET_NAME,
 		payload: "Shafaaf"
+	}
+}
+
+export function setLocationInput(location, inputType){
+	return  {
+		type: SET_LOCATION_INPUT,
+		payload: {
+			location,
+			inputType
+		}
 	}
 }
 

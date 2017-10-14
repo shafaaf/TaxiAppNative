@@ -6,7 +6,8 @@ const {
 	SET_NAME, 
 	GET_CURRENT_LOCATION,
 	GET_LOCATION_INPUT,
-	GET_ADDRESS_PREDICTIONS
+	GET_ADDRESS_PREDICTIONS,
+	SET_LOCATION_INPUT
 } = constants;
 
 const { width, height } = Dimensions.get("window");
@@ -48,9 +49,9 @@ export function LocationReducer(state=initialState.location, action) {
 }
 
 export function LocationInputsReducer(state=initialState.locationInputs, action) {
-	// console.log("\n===Reducer LocationInputsReducer running.");
-	// console.log("LocationInputsReducer: state is: ", state);
-	// console.log("LocationInputsReducer: action is: ", action);
+	console.log("\n===Reducer LocationInputsReducer running.");
+	console.log("LocationInputsReducer: state is: ", state);
+	console.log("LocationInputsReducer: action is: ", action);
 	switch(action.type) {
 		case GET_LOCATION_INPUT:
 			// console.log("LocationInputsReducer: GET_LOCATION_INPUT.");
@@ -60,26 +61,32 @@ export function LocationInputsReducer(state=initialState.locationInputs, action)
 			newData[inputType] = value;
 			newData.selectedInputField = inputType;
 			return Object.assign({}, state, newData);
-			
+		case SET_LOCATION_INPUT:
+			console.log("LocationInputsReducer: SET_LOCATION_INPUT")
+			var newData = {};
+			var inputType =  action.payload.inputType;
+			var location =  action.payload.location;
+			newData[inputType] = location;
+			return Object.assign({}, state, newData);
 		default:
 			// console.log("LocationInputsReducer: default."); 
 			return state;
 	}
 }
 
-export function ToggleLocationPredictionModalReducer(state=initialState.toggleLocationPredictionModal, action) {
-	console.log("\n===Reducer ToggleLocationPredictionModalReducer running.");
-	console.log("ToggleLocationPredictionModalReducer: state is: ", state);
-	console.log("ToggleLocationPredictionModalReducer: action is: ", action);
+export function LocationPredictionsReducer(state=initialState.locationPredictions, action) {
+	// console.log("\n===Reducer LocationPredictionsReducer running.");
+	// console.log("LocationPredictionsReducer: state is: ", state);
+	// console.log("LocationPredictionsReducer: action is: ", action);
 	switch(action.type) {
 		case GET_ADDRESS_PREDICTIONS:
-			console.log("ToggleLocationPredictionModalReducer: GET_ADDRESS_PREDICTIONS.");
+			// console.log("LocationPredictionsReducer: GET_ADDRESS_PREDICTIONS.");
 			var newData = {};
 			newData.inputFieldSelected = action.payload.inputType;
 			newData.predictions = action.payload.predictions;
 			return Object.assign({}, newData);
 		default:
-			console.log("ToggleLocationPredictionModalReducer: default."); 
+			// console.log("LocationPredictionsReducer: default."); 
 			return state;
 	}
 }

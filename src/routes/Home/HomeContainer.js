@@ -8,10 +8,12 @@ const mapStateToProps = (state) => ({
 	name: state.NameReducer,
 	location: state.LocationReducer,
 	locationInputs: state.LocationInputsReducer,
-	toggleLocationPredictionModal: state.ToggleLocationPredictionModalReducer
+	locationPredictions: state.LocationPredictionsReducer
 });
 
 function mapDispatchToProps(dispatch) {
-  return {actions: bindActionCreators(Object.assign(actions), dispatch)}
+	return {
+  		actions: bindActionCreators(Object.assign(actions), dispatch)}
 }
+
 export default connect(mapStateToProps, mapDispatchToProps)(HomeLayout);
