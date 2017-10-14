@@ -24,14 +24,8 @@ export const MapContainer = (props) => {
 	  		<SearchBox 
 	  			getLocationInput={props.getLocationInput}
 	  			getAddressPredictions={props.getAddressPredictions}/>
-	  		{/*<SearchResults/>*/}
+	  		<SearchResults/>
 	  		{/* Todo: Fix this */}
-	  		<TouchableOpacity
-          		style={styles.button}
-          		onPress={() => console.log("What a press")}>
-          		<Text>Open Place Picker</Text>
-        	</TouchableOpacity>
-	    	
 	    </View>
     );
 }
