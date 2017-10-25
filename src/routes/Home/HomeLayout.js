@@ -1,9 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-
 import { Container, Header, Content, Spinner } from 'native-base';
 
+import HeaderComponent from '../../components/Header'
+import FooterComponent from '../../components/Footer'
 import MapContainer from './components/Map'
+
+const taxiLogo = require("../../assets/images/whiteLogo.png");
 
 class HomeLayout extends React.Component {
 	componentDidMount(){
@@ -22,7 +25,8 @@ class HomeLayout extends React.Component {
 		// If received current location
 		if(this.props.location){
 			return (
-				<Container> 
+				<Container>
+					<HeaderComponent logo={taxiLogo} />
 				   	<MapContainer 
 					   	region={this.props.location}
 					   	locationInputs = {this.props.locationInputs}
@@ -30,6 +34,7 @@ class HomeLayout extends React.Component {
 					   	getLocationInput={this.props.actions.getLocationInput}
 					   	setLocationInput={this.props.actions.setLocationInput}
 					   	getAddressPredictions={this.props.actions.getAddressPredictions}/>
+					<FooterComponent logo={taxiLogo} />
 				</Container>
 	    	);
 		}
