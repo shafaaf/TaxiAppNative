@@ -8,10 +8,10 @@ import {
 
 export const makeRootReducer = () => {
 	return combineReducers({
-		NameReducer,
-		LocationReducer,
-		LocationInputsReducer,
-		LocationPredictionsReducer
+		NameReducer,	//user's name
+		LocationReducer,	//intial autodetected location of passenger
+		LocationInputsReducer,	// inputs for pickup and destination addresses
+		LocationPredictionsReducer	// predictions when autocompleting inputs
 	});
 }
 

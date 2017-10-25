@@ -20,7 +20,7 @@ class HomeLayout extends React.Component {
 			longitudeDelta: 0.0421
 		}
 		// If received current location
-		if(this.props.location.latitude){
+		if(this.props.location){
 			return (
 				<Container> 
 				   	<MapContainer 

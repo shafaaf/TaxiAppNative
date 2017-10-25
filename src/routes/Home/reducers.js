@@ -49,9 +49,9 @@ export function LocationReducer(state=initialState.location, action) {
 }
 
 export function LocationInputsReducer(state=initialState.locationInputs, action) {
-	console.log("\n===Reducer LocationInputsReducer running.");
-	console.log("LocationInputsReducer: state is: ", state);
-	console.log("LocationInputsReducer: action is: ", action);
+	// console.log("\n===Reducer LocationInputsReducer running.");
+	// console.log("LocationInputsReducer: state is: ", state);
+	// console.log("LocationInputsReducer: action is: ", action);
 	switch(action.type) {
 		case GET_LOCATION_INPUT:
 			// console.log("LocationInputsReducer: GET_LOCATION_INPUT.");
@@ -62,7 +62,7 @@ export function LocationInputsReducer(state=initialState.locationInputs, action)
 			newData.selectedInputField = inputType;
 			return Object.assign({}, state, newData);
 		case SET_LOCATION_INPUT:
-			console.log("LocationInputsReducer: SET_LOCATION_INPUT")
+			// console.log("LocationInputsReducer: SET_LOCATION_INPUT")
 			var newData = {};
 			var inputType =  action.payload.inputType;
 			var location =  action.payload.location;

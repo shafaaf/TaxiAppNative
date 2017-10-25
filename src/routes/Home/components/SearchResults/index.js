@@ -10,7 +10,7 @@ var predictions = [
 ];
 export const SearchResults = (props) => {
 	function handleSelectedAddress(fullText){
-		console.log("handleSelectedAddress- fullText is: ", fullText);
+		// console.log("handleSelectedAddress- fullText is: ", fullText);
 		props.setLocationInput(fullText, props.locationPredictions.inputFieldSelected);
 		props.hideLocationPredictionsModal();
 	}

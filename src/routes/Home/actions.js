@@ -49,7 +49,7 @@ export function getCurrentLocation(){
 
 // Get input from user for pickup or dropoff locations
 export function getLocationInput(payload){
-	console.log("action dispatched: getLocationInput()- payload is: ", payload);
+	// console.log("action dispatched: getLocationInput()- payload is: ", payload);
 	return  {
 		type: GET_LOCATION_INPUT,
 		payload
@@ -58,7 +58,7 @@ export function getLocationInput(payload){
 
 // Get predictions from user pickup and dropoff locations
 export function getAddressPredictions(payload){
-	console.log("action dispatched: getAddressPredictions(). payload is: ", payload);
+	// console.log("action dispatched: getAddressPredictions(). payload is: ", payload);
 		let inputForPredictions = payload.value;
 		// console.log("inputForPredictions is: ", inputForPredictions);
 		return(dispatch) => {

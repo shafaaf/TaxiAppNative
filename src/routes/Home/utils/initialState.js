@@ -1,13 +1,13 @@
 const initialState = {
-  name: "testName",
-  location: "testLocation",
+  name: null,
+  location: null,
   locationInputs: {
   	"pickUp": null,
   	"dropOff": null,
   	"selectedInputField": null
   },
   locationPredictions: {
-  	"inputFieldSelected": "testInputFieldSelected",
+  	"inputFieldSelected": null,
   	"predictions": []
   }
 };
