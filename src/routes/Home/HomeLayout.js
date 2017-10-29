@@ -32,7 +32,9 @@ class HomeLayout extends React.Component {
 					   	locationInputs = {this.props.locationInputs}
 					   	locationPredictions = {this.props.locationPredictions}
 					   	setLocationInput={this.props.actions.setLocationInput}
-					   	getAddressPredictions={this.props.actions.getAddressPredictions}/>
+					   	getAddressPredictions={this.props.actions.getAddressPredictions} 
+					   	getDistanceTimeLocations={this.props.actions.getDistanceTimeLocations} 
+					   	removePredictions = {this.props.actions.removePredictions} />
 					<FooterComponent logo={taxiLogo} />
 				</Container>
 	    	);

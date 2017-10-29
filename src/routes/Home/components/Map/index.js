@@ -19,6 +19,8 @@ class MapContainer extends React.Component{
 	}
 
 	showLocationPredictionsModal(){
+		// Todo: Instead of removing all old predictions, could just for currently selected ones now.
+		this.props.removePredictions(); // Hide old predictions as those could be from old input field.
 		this.setState({ 
 			showLocationPredictions: true
 		});
@@ -37,7 +39,8 @@ class MapContainer extends React.Component{
 				<SearchResults 
 					locationPredictions = {this.props.locationPredictions}
 					hideLocationPredictionsModal = {this.hideLocationPredictionsModal.bind(this)}
-					setLocationInput = {this.props.setLocationInput} />
+					setLocationInput = {this.props.setLocationInput} 
+					getDistanceTimeLocations = {this.props.getDistanceTimeLocations} />
 			);
 	} 
 	render() {
@@ -67,7 +70,9 @@ MapContainer.propTypes = {
 	locationInputs: PropTypes.object.isRequired,
 	locationPredictions: PropTypes.object.isRequired,
 	setLocationInput: PropTypes.func.isRequired,
-	getAddressPredictions: PropTypes.func.isRequired
+	getAddressPredictions: PropTypes.func.isRequired,
+	getDistanceTimeLocations: PropTypes.func.isRequired,
+	removePredictions: PropTypes.func.isRequired
 };
 
 export default MapContainer;

@@ -6,7 +6,8 @@ const {
 	SET_NAME, 
 	GET_CURRENT_LOCATION,
 	GET_ADDRESS_PREDICTIONS,
-	SET_LOCATION_INPUT
+	SET_LOCATION_INPUT,
+	REMOVE_PREDICTIONS
 } = constants;
 
 const { width, height } = Dimensions.get("window");
@@ -39,7 +40,7 @@ export function LocationReducer(state=initialState.location, action) {
 				{latitude: action.payload.coords.latitude},
 				{longitude: action.payload.coords.longitude},
 				{latitudeDelta: LATITUDE_DELTA},
-				{longitudeDelta: LONGITUDE_DELTA}				
+				{longitudeDelta: LONGITUDE_DELTA}
 			);
 		default:
 			// console.log("LocationReducer: default."); 
@@ -56,11 +57,8 @@ export function LocationInputsReducer(state=initialState.locationInputs, action)
 			//console.log("LocationInputsReducer: SET_LOCATION_INPUT")
 			var newData = {};
 			var inputType =  action.payload.inputType;
-			
 			var location =  action.payload.location;
 			newData[inputType] = location;
-
-
 			return Object.assign({}, state, newData);
 		default:
 			// console.log("LocationInputsReducer: default."); 
@@ -70,8 +68,8 @@ export function LocationInputsReducer(state=initialState.locationInputs, action)
 
 export function LocationPredictionsReducer(state=initialState.locationPredictions, action) {
 	// console.log("\n===Reducer LocationPredictionsReducer running.");
-	// console.log("LocationPredictionsReducer: state is: ", state);
-	// console.log("LocationPredictionsReducer: action is: ", action);
+	console.log("LocationPredictionsReducer: state is: ", state);
+	console.log("LocationPredictionsReducer: action is: ", action);
 	switch(action.type) {
 		case GET_ADDRESS_PREDICTIONS:
 			// console.log("LocationPredictionsReducer: GET_ADDRESS_PREDICTIONS.");
@@ -79,6 +77,11 @@ export function LocationPredictionsReducer(state=initialState.locationPrediction
 			newData.inputFieldSelected = action.payload.inputType;
 			newData.predictions = action.payload.predictions;
 			return Object.assign({}, newData);
+		case REMOVE_PREDICTIONS:
+			console.log("LocationPredictionsReducer: REMOVE_PREDICTIONS");
+			return Object.assign({}, state, {
+				predictions: []
+			});
 		default:
 			// console.log("LocationPredictionsReducer: default."); 
 			return state;

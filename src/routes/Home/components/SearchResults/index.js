@@ -5,9 +5,6 @@ import { View, List, ListItem, Left, Body } from 'native-base';
 import Icon from "react-native-vector-icons/MaterialIcons";
 import styles from './styles';
 
-var predictions = [
-	"asa","Asas","Asa"
-];
 export const SearchResults = (props) => {
 	function handleSelectedAddress(fullText, placeId){
 		// console.log("handleSelectedAddress- fullText is: ", fullText);
@@ -25,6 +22,7 @@ export const SearchResults = (props) => {
 			inputType: props.locationPredictions.inputFieldSelected
 		});
 		props.hideLocationPredictionsModal();
+		props.getDistanceTimeLocations();	//Could be ract condition here, unsure.
 	}
 	return (
 		<View style={styles.searchResultsWrapper}>
@@ -50,7 +48,8 @@ export const SearchResults = (props) => {
 SearchResults.propTypes = {
 	locationPredictions: PropTypes.object.isRequired,
 	hideLocationPredictionsModal: PropTypes.func.isRequired,
-	setLocationInput: PropTypes.func.isRequired
+	setLocationInput: PropTypes.func.isRequired,
+	getDistanceTimeLocations: PropTypes.func.isRequired
 };
 
 export default SearchResults;
