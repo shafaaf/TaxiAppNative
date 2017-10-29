@@ -6,7 +6,6 @@ import constants from './utils/actionConstants';
 const { 
 	SET_NAME, 
 	GET_CURRENT_LOCATION,
-	GET_LOCATION_INPUT,
 	GET_ADDRESS_PREDICTIONS,
 	SET_LOCATION_INPUT
 } = constants;
@@ -21,12 +20,13 @@ export function setName(){
 	}
 }
 
-export function setLocationInput(location, inputType){
+export function setLocationInput(inputs){
+	console.log("setLocationInput: inputs is: ", inputs);
 	return  {
 		type: SET_LOCATION_INPUT,
 		payload: {
-			location,
-			inputType
+			location: inputs.location,
+			inputType: inputs.inputType
 		}
 	}
 }
@@ -44,15 +44,6 @@ export function getCurrentLocation(){
 			(error) => console.log(error.message),
 				{enableHighAccuracy: true, timeout: 20000, maximumAge:1000}
 		);
-	}
-}
-
-// Get input from user for pickup or dropoff locations
-export function getLocationInput(payload){
-	// console.log("action dispatched: getLocationInput()- payload is: ", payload);
-	return  {
-		type: GET_LOCATION_INPUT,
-		payload
 	}
 }
 

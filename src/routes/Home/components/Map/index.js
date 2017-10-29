@@ -53,7 +53,7 @@ class MapContainer extends React.Component{
 		  		</MapView>
 		  		<SearchBox 
 		  			locationInputs = {this.props.locationInputs}
-		  			getLocationInput={this.props.getLocationInput}
+		  			setLocationInput={this.props.setLocationInput}
 		  			getAddressPredictions={this.props.getAddressPredictions}
 		  			toggleLocationPredictionsModal={this.showLocationPredictionsModal.bind(this)} />
 		  		{this.renderLocationPredictionsDropdown()}
@@ -66,7 +66,6 @@ MapContainer.propTypes = {
 	region: PropTypes.object.isRequired,
 	locationInputs: PropTypes.object.isRequired,
 	locationPredictions: PropTypes.object.isRequired,
-	getLocationInput: PropTypes.func.isRequired,
 	setLocationInput: PropTypes.func.isRequired,
 	getAddressPredictions: PropTypes.func.isRequired
 };

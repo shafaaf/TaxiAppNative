@@ -31,7 +31,6 @@ class HomeLayout extends React.Component {
 					   	region={this.props.location}
 					   	locationInputs = {this.props.locationInputs}
 					   	locationPredictions = {this.props.locationPredictions}
-					   	getLocationInput={this.props.actions.getLocationInput}
 					   	setLocationInput={this.props.actions.setLocationInput}
 					   	getAddressPredictions={this.props.actions.getAddressPredictions}/>
 					<FooterComponent logo={taxiLogo} />

@@ -7,9 +7,14 @@ import styles from './styles';
 
 export const SearchBox = (props) => {
 	function handleInput(inputType, value){
-		props.getLocationInput({ //update pickup, dropoff locations
-			inputType,
-			value
+		// console.log("handleInput: inputType is: ", inputType);
+		// console.log("handleInput: value is: ", value);
+		props.setLocationInput({ //update pickup, dropoff locations
+			location: {
+				"fullText" : value,
+				"placeId": null
+			},
+			inputType: inputType
 		});
 		props.getAddressPredictions({ //get predictions for pickup, dropoff locations
 			inputType,
@@ -26,7 +31,7 @@ export const SearchBox = (props) => {
 		    			onFocus={()=>{
 		    				props.toggleLocationPredictionsModal();
 		    			}}
-		    			value={props.locationInputs.pickUp}
+		    			value={props.locationInputs.pickUp.fullText}
 		    			style={styles.inputSearch} 
 		    			placeholder="Choose pickup location."
 		    			onChangeText={handleInput.bind(this, "pickUp")}/>
@@ -40,7 +45,7 @@ export const SearchBox = (props) => {
 		    			onFocus={()=>{
 		    				props.toggleLocationPredictionsModal();
 		    			}}
-		    			value={props.locationInputs.dropOff}
+		    			value={props.locationInputs.dropOff.fullText}
 		    			style={styles.inputSearch} 
 		    			placeholder="Choose dropOff location."
 		    			onChangeText={handleInput.bind(this, "dropOff")}/>
@@ -52,7 +57,7 @@ export const SearchBox = (props) => {
 
 SearchBox.propTypes = {
 	locationInputs: PropTypes.object.isRequired,
-	getLocationInput: PropTypes.func.isRequired,
+	setLocationInput: PropTypes.func.isRequired,
 	getAddressPredictions: PropTypes.func.isRequired,
 	toggleLocationPredictionsModal: PropTypes.func.isRequired
 };

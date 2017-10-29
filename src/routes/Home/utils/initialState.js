@@ -2,8 +2,14 @@ const initialState = {
   name: null,
   location: null,
   locationInputs: {
-  	"pickUp": null,
-  	"dropOff": null,
+    pickUp: {
+      "placeId": null,
+      "fullText": null
+    },
+  	dropOff: {
+      "placeId": null,
+      "fullText": null
+    },
   	"selectedInputField": null
   },
   locationPredictions: {

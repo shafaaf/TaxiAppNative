@@ -5,7 +5,6 @@ import constants from './utils/actionConstants';
 const { 
 	SET_NAME, 
 	GET_CURRENT_LOCATION,
-	GET_LOCATION_INPUT,
 	GET_ADDRESS_PREDICTIONS,
 	SET_LOCATION_INPUT
 } = constants;
@@ -40,7 +39,7 @@ export function LocationReducer(state=initialState.location, action) {
 				{latitude: action.payload.coords.latitude},
 				{longitude: action.payload.coords.longitude},
 				{latitudeDelta: LATITUDE_DELTA},
-				{longitudeDelta: LONGITUDE_DELTA}					
+				{longitudeDelta: LONGITUDE_DELTA}				
 			);
 		default:
 			// console.log("LocationReducer: default."); 
@@ -53,20 +52,15 @@ export function LocationInputsReducer(state=initialState.locationInputs, action)
 	// console.log("LocationInputsReducer: state is: ", state);
 	// console.log("LocationInputsReducer: action is: ", action);
 	switch(action.type) {
-		case GET_LOCATION_INPUT:
-			// console.log("LocationInputsReducer: GET_LOCATION_INPUT.");
-			var inputType =  action.payload.inputType;
-			var value =  action.payload.value;
-			var newData = {};
-			newData[inputType] = value;
-			newData.selectedInputField = inputType;
-			return Object.assign({}, state, newData);
 		case SET_LOCATION_INPUT:
-			// console.log("LocationInputsReducer: SET_LOCATION_INPUT")
+			//console.log("LocationInputsReducer: SET_LOCATION_INPUT")
 			var newData = {};
 			var inputType =  action.payload.inputType;
+			
 			var location =  action.payload.location;
 			newData[inputType] = location;
+
+
 			return Object.assign({}, state, newData);
 		default:
 			// console.log("LocationInputsReducer: default."); 
