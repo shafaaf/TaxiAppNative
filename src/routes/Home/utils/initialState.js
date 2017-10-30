@@ -15,7 +15,8 @@ const initialState = {
   locationPredictions: {
   	"inputFieldSelected": null,
   	"predictions": []
-  }
+  },
+  fare: null
 };
 
 export default initialState;

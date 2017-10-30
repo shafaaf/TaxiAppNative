@@ -8,7 +8,8 @@ const mapStateToProps = (state) => ({
 	name: state.NameReducer,
 	location: state.LocationReducer,
 	locationInputs: state.LocationInputsReducer,
-	locationPredictions: state.LocationPredictionsReducer
+	locationPredictions: state.LocationPredictionsReducer,
+	fare: state.FareReducer
 });
 
 function mapDispatchToProps(dispatch) {

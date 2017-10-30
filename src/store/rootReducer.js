@@ -3,7 +3,8 @@ import {
 	NameReducer, 
 	LocationReducer,
 	LocationInputsReducer,
-	LocationPredictionsReducer
+	LocationPredictionsReducer,
+	FareReducer
 } from '../routes/Home/reducers';
 
 export const makeRootReducer = () => {
@@ -11,7 +12,8 @@ export const makeRootReducer = () => {
 		NameReducer,	//user's name
 		LocationReducer,	//intial autodetected location of passenger
 		LocationInputsReducer,	// inputs for pickup and destination addresses
-		LocationPredictionsReducer	// predictions when autocompleting inputs
+		LocationPredictionsReducer,	// predictions when autocompleting inputs,
+		FareReducer	// Current fare
 	});
 }
 

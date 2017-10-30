@@ -6,12 +6,23 @@ import HeaderComponent from '../../components/Header'
 import FooterComponent from '../../components/Footer'
 import MapContainer from './components/Map'
 
+import Fare from "./components/Fare";
+
 const taxiLogo = require("../../assets/images/whiteLogo.png");
 
 class HomeLayout extends React.Component {
 	componentDidMount(){
 		this.props.actions.setName();
 		this.props.actions.getCurrentLocation();
+	}
+
+	renderFareComponent(){
+		console.log("this.props.fare is: ", this.props.fare);
+		if(this.props.fare){
+			return (
+				<Fare fare={this.props.fare} />
+			);
+		}
 	}
 
 	render() {
@@ -35,6 +46,7 @@ class HomeLayout extends React.Component {
 					   	getAddressPredictions={this.props.actions.getAddressPredictions} 
 					   	getDistanceTimeLocations={this.props.actions.getDistanceTimeLocations} 
 					   	removePredictions = {this.props.actions.removePredictions} />
+					{this.renderFareComponent()}
 					<FooterComponent logo={taxiLogo} />
 				</Container>
 	    	);

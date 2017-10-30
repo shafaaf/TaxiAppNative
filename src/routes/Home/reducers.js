@@ -7,7 +7,8 @@ const {
 	GET_CURRENT_LOCATION,
 	GET_ADDRESS_PREDICTIONS,
 	SET_LOCATION_INPUT,
-	REMOVE_PREDICTIONS
+	REMOVE_PREDICTIONS,
+	SET_FARE
 } = constants;
 
 const { width, height } = Dimensions.get("window");
@@ -68,8 +69,8 @@ export function LocationInputsReducer(state=initialState.locationInputs, action)
 
 export function LocationPredictionsReducer(state=initialState.locationPredictions, action) {
 	// console.log("\n===Reducer LocationPredictionsReducer running.");
-	console.log("LocationPredictionsReducer: state is: ", state);
-	console.log("LocationPredictionsReducer: action is: ", action);
+	// console.log("LocationPredictionsReducer: state is: ", state);
+	// console.log("LocationPredictionsReducer: action is: ", action);
 	switch(action.type) {
 		case GET_ADDRESS_PREDICTIONS:
 			// console.log("LocationPredictionsReducer: GET_ADDRESS_PREDICTIONS.");
@@ -78,12 +79,24 @@ export function LocationPredictionsReducer(state=initialState.locationPrediction
 			newData.predictions = action.payload.predictions;
 			return Object.assign({}, newData);
 		case REMOVE_PREDICTIONS:
-			console.log("LocationPredictionsReducer: REMOVE_PREDICTIONS");
+			// console.log("LocationPredictionsReducer: REMOVE_PREDICTIONS");
 			return Object.assign({}, state, {
 				predictions: []
 			});
 		default:
 			// console.log("LocationPredictionsReducer: default."); 
+			return state;
+	}
+}
+
+export function FareReducer(state=initialState.fare, action){
+	// console.log("FareReducer: state is: ", state);
+	// console.log("FareReducer: action is: ", action);
+	switch(action.type) {
+		case SET_FARE:
+			// console.log("FareReducer: SET_FARE");
+			return action.payload;
+		default:
 			return state;
 	}
 }

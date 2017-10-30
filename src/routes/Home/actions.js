@@ -9,7 +9,8 @@ const {
 	GET_CURRENT_LOCATION,
 	GET_ADDRESS_PREDICTIONS,
 	SET_LOCATION_INPUT,
-	REMOVE_PREDICTIONS
+	REMOVE_PREDICTIONS,
+	SET_FARE
 } = constants;
 
 // Functions to dispatch actions
@@ -26,7 +27,7 @@ export function setName(){
 // Called initially on startup
 export function getCurrentLocation(){
 	// console.log("action dispatched: getCurrentLocation()");
-	return(dispatch)=>{
+	return(dispatch) => {
 		navigator.geolocation.getCurrentPosition(
 			(position)=>{
 				dispatch({
@@ -82,6 +83,13 @@ export function removePredictions(){
 	}
 }
 
+export function setFare(payload){
+	return  {
+		type: SET_FARE,
+		payload: payload
+	}	
+}
+
 // Called when selected a predicted address
 export function getDistanceTimeLocations(payload){
 	console.log("getDistanceTimeLocations: payload is: ", payload);
@@ -114,14 +122,11 @@ export function getDistanceTimeLocations(payload){
 			let filteredOutput = {};
 			filteredOutput["origin"] = json.origin_addresses[0];
 			filteredOutput["destination"] = json.destination_addresses[0];
-			
 			filteredOutput["distanceText"] = json.rows[0]["elements"][0]["distance"]["text"];
 			filteredOutput["distanceValue"] = json.rows[0]["elements"][0]["distance"]["value"];
-			
 			filteredOutput["durationText"] = json.rows[0]["elements"][0]["duration"]["text"];		
 			filteredOutput["durationValue"] = json.rows[0]["elements"][0]["duration"]["value"];		
 			console.log("filteredOutput is: ", filteredOutput);
-
 			const fare = calculateFare(
 				dummyNumbers.baseFare,
 				dummyNumbers.timeRate,
@@ -130,8 +135,7 @@ export function getDistanceTimeLocations(payload){
 				filteredOutput["distanceValue"],
 				dummyNumbers.surge,
 			);
-
-			console.log("current fare is: ", fare);
+			dispatch(setFare(fare));
 		})
 	}
 }
