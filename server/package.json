@@ -1,0 +1,20 @@
+{
+  "name": "taxiAppNative",
+  "version": "1.0.0",
+  "description": "Develop a set of RESTful APIs capable of reading a JSON file deployed on accessible Node.js server.  Data from the JSON file should be accessible using a collection of simple HTTP reqeusts and presented appropriately on the front-end.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mongojs": "^2.4.1"
+  }
+}
