@@ -5,7 +5,7 @@ import { View} from "native-base";
 
 import styles from "./styles.js";
 
-const Fare = (props) =>{
+const Fare = (props) => {
 	return (
 		<View style={styles.fareContainer}>
 			<Text>

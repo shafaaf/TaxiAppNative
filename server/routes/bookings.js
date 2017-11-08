@@ -1,3 +1,4 @@
+var path = require("path");
 var express = require("express");
 var router = express.Router();
 var mongojs = require("mongojs");
@@ -16,6 +17,7 @@ router.get('/bookings', function(req, res) {
 	});
 });
 
+// Make a booking
 router.post('/bookings', function(req, res){
 	console.log("\nPOST Request at /api/bookings");
 	console.log("req.body is: ", req.body);
@@ -31,6 +33,7 @@ router.post('/bookings', function(req, res){
 			if(err){
 				res.send(err);
 			}
+			console.log("savedBooking is: ", savedBooking);
 			res.json(savedBooking);
 		});	
 	}

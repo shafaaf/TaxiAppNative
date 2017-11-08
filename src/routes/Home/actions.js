@@ -2,7 +2,6 @@ import RNGooglePlaces from 'react-native-google-places';
 import calculateFare from "./utils/fareCalculator.js";
 import constants from './utils/actionConstants';
 
-
 // Reducers
 const { 
 	SET_NAME, 
@@ -10,7 +9,8 @@ const {
 	GET_ADDRESS_PREDICTIONS,
 	SET_LOCATION_INPUT,
 	REMOVE_PREDICTIONS,
-	SET_FARE
+	SET_FARE,
+	BOOK_ROUTE
 } = constants;
 
 // Functions to dispatch actions
@@ -76,6 +76,7 @@ export function getAddressPredictions(payload){
 		}
 }
 
+// Called when switching between src and destination and so remove old predictions
 export function removePredictions(){
 	return  {
 		type: REMOVE_PREDICTIONS,
@@ -138,4 +139,42 @@ export function getDistanceTimeLocations(payload){
 			dispatch(setFare(fare));
 		})
 	}
+}
+
+// Called when selected pickup, dropoff and click on book
+export function bookRoute(payload){
+	console.log("bookRoute: payload is: ", payload);
+	return(dispatch, store) => {
+		let name = store().NameReducer;
+		let pickUpPlaceId = store().LocationInputsReducer.pickUp.placeId;
+		let dropOffPlaceId = store().LocationInputsReducer.dropOff.placeId;
+		let fare = store().FareReducer;
+		// console.log("name is: ", name);
+		// console.log("pickUpPlaceId is: ", pickUpPlaceId);
+		// console.log("dropOffPlaceId is: ", dropOffPlaceId);
+		// console.log("fare is: ", fare);
+		// Todo: Have checks here to make sure all values are valid
+		var data = {};
+		data.name = name;
+		data.pickUpPlaceId = pickUpPlaceId;
+		data.dropOffPlaceId = dropOffPlaceId;
+		data.fare = fare;
+		console.log("data is: ", data);
+		var url = "http://localhost:8080/api/bookings"
+		var request = new Request(url, {
+			method: 'POST',
+			headers: new Headers({
+				'Content-Type': 'application/json'
+			}),
+			body: JSON.stringify(data)
+		});
+		fetch(request)
+			.then(function(response) {
+				console.log("response is: ", response);
+			})		
+			.catch(function (error){
+    			console.log('bookRoute: error in booking route: ', error);
+    			reject(error);
+  			})	
+	} 
 }

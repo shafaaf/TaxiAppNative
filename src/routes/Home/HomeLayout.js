@@ -7,6 +7,7 @@ import FooterComponent from '../../components/Footer'
 import MapContainer from './components/Map'
 
 import Fare from "./components/Fare";
+import FloatingActionButton from "./components/FloatingActionButton";
 
 const taxiLogo = require("../../assets/images/whiteLogo.png");
 
@@ -20,7 +21,10 @@ class HomeLayout extends React.Component {
 		console.log("this.props.fare is: ", this.props.fare);
 		if(this.props.fare){
 			return (
-				<Fare fare={this.props.fare} />
+				<View>
+					<Fare fare={this.props.fare} />
+					<FloatingActionButton bookRoute={this.props.actions.bookRoute}/>
+				</View>	
 			);
 		}
 	}
