@@ -15,6 +15,10 @@ class HomeLayout extends React.Component {
 	componentDidMount(){
 		this.props.actions.setName();
 		this.props.actions.getCurrentLocation();
+		
+		var timerid = setTimeout(() => {
+  			this.props.actions.getNearByDrivers();
+		}, 2000);
 	}
 
 	renderFareComponent(){
@@ -32,8 +36,8 @@ class HomeLayout extends React.Component {
 	render() {
 		// Toronto location
 		const region = {
-			latitude: 23.810332,
-      		longitude: 90.412518,
+			latitude: 43.670622,
+      		longitude: -79.386530,
 			latitudeDelta: 0.0922,
 			longitudeDelta: 0.0421
 		}
@@ -43,7 +47,7 @@ class HomeLayout extends React.Component {
 				<Container>
 					<HeaderComponent logo={taxiLogo} />
 				   	<MapContainer 
-					   	region={this.props.location}
+					   	region={region}
 					   	locationInputs = {this.props.locationInputs}
 					   	locationPredictions = {this.props.locationPredictions}
 					   	setLocationInput={this.props.actions.setLocationInput}

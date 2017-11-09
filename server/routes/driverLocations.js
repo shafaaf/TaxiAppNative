@@ -35,30 +35,19 @@ router.put('/driverlocations', function(req, res) {
 });
 
 // Get nearby driver. Done from passenger mobile app.
-router.get("/driverlocationsnearby", function(req, res, next){
-	console.log("\nGET Request at /api/driverlocationsnearby");
-	db.driversLocation.ensureIndex({"coordinate":"2dsphere"});
-	db.driversLocation.find({
-			"coordinate":{
-				"$near":{
-					"$geometry":{
-						"type":"Point",
-						"coordinates": [parseFloat(req.query.longitude), parseFloat(req.query.latitude)]
-					},
-					"$maxDistance":10000
-				}
-			}
-		}, function(err, location){
-			if(err){
-				console.log("err is: ", err);
-				res.send(err);
-
-			} else{
-				console.log("location is: ", location);
-				res.send(location);
-			}
-	});
-
+router.post("/driverlocationsnearby", function(req, res){
+	console.log("\nPOST Request at /api/driverlocationsnearby");
+	console.log("req.body is: ", req.body);
+	db.driverLocations.find({}).toArray(function (err, docs) { 
+		if(err) {
+			console.log("err is: ", err);
+			res.send(err);
+		}
+		else{
+			console.log("docs is: ", docs);
+			res.send("1");
+		}
+	})
 });
 
 

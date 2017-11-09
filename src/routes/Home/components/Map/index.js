@@ -49,7 +49,7 @@ class MapContainer extends React.Component{
 		    	<MapView
 		    		provider={MapView.PROVIDER_GOOGLE}
 					style={styles.map}
-					region={this.props.region}>
+					initialRegion={this.props.region}>
 					<MapView.Marker 
 						coordinate={this.props.region}
 		  				pinColor="green"/>

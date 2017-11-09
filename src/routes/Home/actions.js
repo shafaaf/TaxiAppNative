@@ -178,3 +178,31 @@ export function bookRoute(payload){
   			})	
 	} 
 }
+
+export function getNearByDrivers(){
+	console.log("getNearByDrivers");
+	return (dispatch, store) => {
+		var url = "http://localhost:8080/api/driverlocationsnearby";
+		var data = {};
+		// Hard coded in Toronto address
+		data.latitude = 43.670622;
+      	data.longitude = -79.386530;
+		console.log("Sending request ");
+		var request = new Request(url, {
+			method: 'POST',
+			headers: new Headers({
+				'Content-Type': 'application/json'
+			}),
+			body: JSON.stringify(data)
+		});
+		fetch(request)
+			.then(function(response) {
+				console.log("response is: ", response);
+			})		
+			.catch(function (error){
+    			console.log('error in getNearByDrivers: ', error);
+    			reject(error);
+  			})
+  		console.log("after fetch");
+	}
+}
